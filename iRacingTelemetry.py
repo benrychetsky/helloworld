@@ -233,7 +233,7 @@ class iRacing:
         if mps == None:
             return "Null"
         else:
-            mph = math.floor(mps * 2.23694)
+            mph = round(mps * 2.23694, 2)
             return mph
 
     def densityConvert(self, kgm3):

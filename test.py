@@ -28,7 +28,7 @@ def ingestTelemetry(state):
             state.iRacingVars()
             data = state.iRacingVarDict()
             telemetry_df = telemetry_df._append(data, ignore_index=True)
-            time.sleep(1/4)
+            time.sleep(1/8)
 
         except KeyboardInterrupt:
             filename = f"telemetry_data_{date}_{n}.csv"
