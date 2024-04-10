@@ -212,10 +212,8 @@ class iRacing:
 
     # def rad2degrees(self, steering_angle):
     #     steering_degrees = math.floor((steering_angle * 180) / math.pi)
-    #     return steering_degrees
-
-        
-
+    #     return steering_degrees\
+    
     def rad2degrees(self, steering_angle):
         steering_degrees = math.degrees(steering_angle)
         return math.floor(-steering_degrees)
