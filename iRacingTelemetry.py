@@ -147,6 +147,7 @@ class iRacing:
         self.PaceMode = None
         self.OnPitRoad = None
         self.LapPrct = 0
+        self.LapDist = 0
         self.SessionTime = 0
         self.IsOnTrack = None
         self.LapBestLap = 0
@@ -213,7 +214,7 @@ class iRacing:
     # def rad2degrees(self, steering_angle):
     #     steering_degrees = math.floor((steering_angle * 180) / math.pi)
     #     return steering_degrees\
-    
+
     def rad2degrees(self, steering_angle):
         steering_degrees = math.degrees(steering_angle)
         return math.floor(-steering_degrees)
@@ -233,6 +234,11 @@ class iRacing:
         else:
             mph = round(mps * 2.23694, 2)
             return mph
+
+    def meters2feet(self, meters):
+        feet = meters * 3.28084
+        return feet
+
 
     def densityConvert(self, kgm3):
         lbsPerCubicFt = round(kgm3 * 0.06242796, 2)
@@ -444,7 +450,7 @@ class iRacing:
         self.IsOnTrack = self.irsdk['IsOnTrack']
         self.Lap = self.irsdk['Lap']
         self.LapLastLapTime = round(self.irsdk['LapLastLapTime'], 3)
-        self.LapPrct = self.val2Prct(self.irsdk['LapDistPct'])
+        self.LapDist = self.meters2feet(self.irsdk['LapDist'])
         self.LapBestLap = round(self.absValSolver(self.irsdk['LapBestLap']), 3)
         self.LapCompleted = self.absValSolver(self.irsdk['LapCompleted'])
         self.CurrentLapTime = self.timeUpdater(self.irsdk['LapCurrentLapTime'])
@@ -463,6 +469,7 @@ class iRacing:
             "Lap Nbr": self.Lap,
             "PaceMode": self.PaceMode,
             "OnPitRoad": self.OnPitRoad,
+            "LpDistance": self.LapDist,
             "LapDistPrct %": self.LapPrct,
             "SessionTime": self.SessionTime,
             "IsOnTrack": self.IsOnTrack,
