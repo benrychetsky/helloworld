@@ -208,7 +208,7 @@ class iRacing:
         if val == None:
             return "Null"
         else:
-            real_val = math.floor(val * 100)
+            real_val = round(val * 100, 2)
             return max(0, real_val)
 
     # def rad2degrees(self, steering_angle):
@@ -217,7 +217,7 @@ class iRacing:
 
     def rad2degrees(self, steering_angle):
         steering_degrees = math.degrees(steering_angle)
-        return math.floor(-steering_degrees)
+        return round(-steering_degrees, 3)
 
         
         # if steering_degrees <= 180:

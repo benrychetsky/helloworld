@@ -3,7 +3,7 @@ import plotly.graph_objs as go
 import plotly.express as px
 import pandas as pd
 
-df = pd.read_csv(r'telemetry_data_4_10_2024_1.csv')
+df = pd.read_csv(r'telemetry_data_4_10_2024_1.csv', low_memory=False)
 
 
 app = Dash(__name__)
@@ -140,7 +140,7 @@ def update_steering_graph(value):
     dff = df[df['LapCompleted'] == value]
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=dff['SessionTime'], y=dff['SteeringWheelAngle (deg)'], mode='lines'))
-    fig.update_layout(title='Steering Angle', yaxis=dict(range=[-180, 180]))
+    fig.update_layout(title='Steering Angle', yaxis=dict(range=[-100, 100]))
     fig.update_xaxes(showticklabels=False)
     return fig
 
