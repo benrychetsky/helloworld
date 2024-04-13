@@ -21,6 +21,7 @@ class iRacing:
         self.Clutch = 0
         self.Speed = 0
         self.currentGear = 0
+        self.gearDisplay = None
         self.rpm = 0
         self.SteeringWheelAngle = 0
         self.FuelLevelPct = 0
@@ -175,7 +176,7 @@ class iRacing:
         return max(0, real_clutch)
 
 
-    def gearDisplay(self, gear):
+    def gear_Display(self, gear):
         if gear == 0:
             return "N"
         elif gear == -1:
@@ -333,7 +334,8 @@ class iRacing:
         self.Throttle = self.val2Prct(self.irsdk['Throttle'])
         self.Clutch = self.clutch_val(self.irsdk['Clutch'])
         self.rpm = math.floor(self.irsdk['RPM'])
-        self.currentGear = self.gearDisplay(self.irsdk['Gear'])
+        self.currentGear = self.irsdk['Gear']
+        self.gearDisplay = self.gear_Display(self.irsdk['Gear'])
         self.SteeringWheelAngle = self.rad2degrees(self.irsdk['SteeringWheelAngle'])
         self.FuelLevelPct = self.val2Prct(self.irsdk['FuelLevelPct'])
 
@@ -487,6 +489,7 @@ class iRacing:
             "Clutch %": self.Clutch,
             "Speed (MPH)": self.Speed,
             "currentGear": self.currentGear,
+            "GearDisplay": self.gearDisplay,
             "RPM": self.rpm,
             "SteeringWheelAngle (deg)": self.SteeringWheelAngle,
             "FuelLevelPct": self.FuelLevelPct,
