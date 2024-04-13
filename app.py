@@ -3,8 +3,8 @@ import plotly.graph_objs as go
 import plotly.express as px
 import pandas as pd
 
-df = pd.read_csv(r'telemetry_data_3_29_2024_1.csv', low_memory=False)
-
+df = pd.read_csv(r'telemetry_data_4_12_2024_2.csv', low_memory=False)
+gears = sorted(df['currentGear'].unique())
 
 app = Dash(__name__)
 
@@ -127,7 +127,7 @@ def update_gear_graph(value):
         title_font=dict(color='white'),
         plot_bgcolor='#272a2e',
         paper_bgcolor='#050505',
-        yaxis=dict(gridcolor='rgba(255, 255, 255, 0.2)', zerolinecolor='rgba(255, 255, 255, 0.4)'),
+        yaxis=dict(tickvals=gears, gridcolor='rgba(255, 255, 255, 0.2)', zerolinecolor='rgba(255, 255, 255, 0.4)'),
         margin=dict(l=10, r=10, t=45, b=15),
         xaxis=dict(gridcolor='rgba(255, 255, 255, 0.2)', zerolinecolor='rgba(255, 255, 255, 0.2)'))
     fig.update_xaxes(showticklabels=False)
