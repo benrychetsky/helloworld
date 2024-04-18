@@ -471,7 +471,7 @@ class iRacing:
             "Lap Nbr": self.Lap,
             "PaceMode": self.PaceMode,
             "OnPitRoad": self.OnPitRoad,
-            "LpDistance": self.LapDist,
+            "LapDistance": self.LapDist,
             "LapDistPrct %": self.LapPrct,
             "SessionTime": self.SessionTime,
             "IsOnTrack": self.IsOnTrack,
