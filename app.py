@@ -3,7 +3,7 @@ import plotly.graph_objs as go
 import plotly.express as px
 import pandas as pd
 
-df = pd.read_csv(r'session data\telemetry_data_4_12_2024_2.csv', low_memory=False)
+df = pd.read_csv(r'C:\Users\jedin\projects\iRacingTelemetry\session data\telemetry_data_5_1_2024_1.csv', low_memory=False)
 gears = sorted(df['currentGear'].unique())
 
 app = Dash(__name__)
